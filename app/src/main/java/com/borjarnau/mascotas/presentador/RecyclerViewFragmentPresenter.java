@@ -69,9 +69,21 @@ public class RecyclerViewFragmentPresenter  implements  IRecyclerViewFragmentPre
 
         //obtenerMediosRecientesUsuario();
         //Toast.makeText(context, mascotasUSer.get(0).getId(), Toast.LENGTH_LONG).show();
-        if (RecyclerViewFragmentViewII.esPako == true){
+       /* if (RecyclerViewFragmentViewII.esPako == true){
             obtenerFotoPerfil();
             obtenerMediosRecientes();
+        }
+       */
+
+        if(RecyclerViewFragmentViewII.quienEs == 1){
+            obtenerFotoPerfil();
+            obtenerMediosRecientes();
+        }else if (RecyclerViewFragmentViewII.quienEs == 2){
+            obtenerFotoPerfilNiko_pty();
+            obtenerMediosRecientesNiko_pty();
+        }else if (RecyclerViewFragmentViewII.quienEs == 3){
+            obtenerFotoPerfilGatoulises();
+            obtenerMediosRecientesGatoulises();
         }
 
         //Toast.makeText(context, urlPerfilFoto, Toast.LENGTH_LONG).show();
@@ -137,6 +149,131 @@ public class RecyclerViewFragmentPresenter  implements  IRecyclerViewFragmentPre
 
     }
 
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void obtenerFotoPerfilGatoulises() {
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        Gson gsonMediaRecent = restApiAdapter.construyeGsonDeserializadorFotoPerrfil();
+        EndPointApi endPointApi = restApiAdapter.establecerConexionRestApiInstagram(gsonMediaRecent);
+
+        Call<MascotaFotoPerfilResponse> mascotaFotoPerfilResponseCall = endPointApi.getFotoPerfilGatoulises();
+
+        mascotaFotoPerfilResponseCall.enqueue(new Callback<MascotaFotoPerfilResponse>() {
+            @Override
+            public void onResponse(Call<MascotaFotoPerfilResponse> call, Response<MascotaFotoPerfilResponse> response) {
+                MascotaFotoPerfilResponse mascotaFotoPerfilResponse = response.body();
+                urlPerfilFoto = mascotaFotoPerfilResponse.getUrlFotoPerfil();
+
+                //Toast.makeText(context, urlPerfilFoto, Toast.LENGTH_LONG).show();
+
+
+                mostrarFotoPerfilUser(urlPerfilFoto);
+
+            }
+
+            @Override
+            public void onFailure(Call<MascotaFotoPerfilResponse> call, Throwable t) {
+                Toast.makeText(context, "Algo paso en la conexión", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+
+
+    @Override
+    public void obtenerMediosRecientesGatoulises() {
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        Gson gsonMediaRecent = restApiAdapter.construyeGsonDeserializadorMediaRecent();
+        EndPointApi endPointApi = restApiAdapter.establecerConexionRestApiInstagram(gsonMediaRecent);
+
+        Call<MascotaResponse> mascotaResponseCall = endPointApi.getRecentMediaGatoulises();
+
+        mascotaResponseCall.enqueue(new Callback<MascotaResponse>() {
+            @Override
+            public void onResponse(Call<MascotaResponse> call, Response<MascotaResponse> response) {
+                MascotaResponse mascotaResponse = response.body();
+
+
+                mascotas = mascotaResponse.getMascotas();
+                mostrarMascotasUserRV();
+            }
+
+            @Override
+            public void onFailure(Call<MascotaResponse> call, Throwable t) {
+                Toast.makeText(context, "Algo paso en la conexión", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void obtenerFotoPerfilNiko_pty() {
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        Gson gsonMediaRecent = restApiAdapter.construyeGsonDeserializadorFotoPerrfil();
+        EndPointApi endPointApi = restApiAdapter.establecerConexionRestApiInstagram(gsonMediaRecent);
+
+        Call<MascotaFotoPerfilResponse> mascotaFotoPerfilResponseCall = endPointApi.getFotoPerfilNiko_pty();
+
+        mascotaFotoPerfilResponseCall.enqueue(new Callback<MascotaFotoPerfilResponse>() {
+            @Override
+            public void onResponse(Call<MascotaFotoPerfilResponse> call, Response<MascotaFotoPerfilResponse> response) {
+                MascotaFotoPerfilResponse mascotaFotoPerfilResponse = response.body();
+                urlPerfilFoto = mascotaFotoPerfilResponse.getUrlFotoPerfil();
+
+                //Toast.makeText(context, urlPerfilFoto, Toast.LENGTH_LONG).show();
+
+
+                mostrarFotoPerfilUser(urlPerfilFoto);
+
+            }
+
+            @Override
+            public void onFailure(Call<MascotaFotoPerfilResponse> call, Throwable t) {
+                Toast.makeText(context, "Algo paso en la conexión", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+
+
+    @Override
+    public void obtenerMediosRecientesNiko_pty() {
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        Gson gsonMediaRecent = restApiAdapter.construyeGsonDeserializadorMediaRecent();
+        EndPointApi endPointApi = restApiAdapter.establecerConexionRestApiInstagram(gsonMediaRecent);
+
+        Call<MascotaResponse> mascotaResponseCall = endPointApi.getRecentMediaNiko_pty();
+
+        mascotaResponseCall.enqueue(new Callback<MascotaResponse>() {
+            @Override
+            public void onResponse(Call<MascotaResponse> call, Response<MascotaResponse> response) {
+                MascotaResponse mascotaResponse = response.body();
+
+
+                mascotas = mascotaResponse.getMascotas();
+                mostrarMascotasUserRV();
+            }
+
+            @Override
+            public void onFailure(Call<MascotaResponse> call, Throwable t) {
+                Toast.makeText(context, "Algo paso en la conexión", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+
 /*
     public void obtenerMediosRecientesUsuario() {
         RestApiAdapter restApiAdapter = new RestApiAdapter();
@@ -172,10 +309,11 @@ public class RecyclerViewFragmentPresenter  implements  IRecyclerViewFragmentPre
         Gson gsonMediaRecent = restApiAdapter.construyeGsonDeserializadorMediaRecent();
         EndPointApi endPointApi = restApiAdapter.establecerConexionRestApiInstagram(gsonMediaRecent);
 
-        Call<MascotaResponse> mascotaResponseCall = endPointApi.getRecentMediaAtuaniv();
-        final Call<MascotaResponse> mascotaResponseCall1 = endPointApi.getRecentMediaMypetappcour();
-        final Call<MascotaResponse> mascotaResponseCall2 = endPointApi.getRecentMediaLuistono56();
+        Call<MascotaResponse> mascotaResponseCall = endPointApi.getRecentMediaGatoulises();
+        final Call<MascotaResponse> mascotaResponseCall1 = endPointApi.getRecentMediaNiko_pty();
+        final Call<MascotaResponse> mascotaResponseCall2 = endPointApi.getRecentMedia();
         final Call<MascotaResponse> mascotaResponseCall3 = endPointApi.getRecentMediaMascotasapp2016();
+        final Call<MascotaResponse> mascotaResponseCall4 = endPointApi.getRecentMediaMypetappcour();
 
         mascotaResponseCall.enqueue(new Callback<MascotaResponse>() {
             @Override
@@ -201,20 +339,39 @@ public class RecyclerViewFragmentPresenter  implements  IRecyclerViewFragmentPre
                                         MascotaResponse mascotaResponse = response.body();
                                         mascotasUSer.addAll(mascotaResponse.getMascotas());
 
-                                        mostrarMascotasRV();
+                                        mascotaResponseCall4.enqueue(new Callback<MascotaResponse>() {
+                                            @Override
+                                            public void onResponse(Call<MascotaResponse> call, Response<MascotaResponse> response) {
+                                                MascotaResponse mascotaResponse = response.body();
+                                                mascotasUSer.addAll(mascotaResponse.getMascotas());
+
+                                                mostrarMascotasRV();
+
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<MascotaResponse> call, Throwable t) {
+                                                Toast.makeText(context, "Algo paso en la conexión", Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+
+
                                     }
+
                                     @Override
                                     public void onFailure(Call<MascotaResponse> call, Throwable t) {
                                         Toast.makeText(context, "Algo paso en la conexión", Toast.LENGTH_LONG).show();
                                     }
                                 });
                             }
+
                             @Override
                             public void onFailure(Call<MascotaResponse> call, Throwable t) {
                                 Toast.makeText(context, "Algo paso en la conexión", Toast.LENGTH_LONG).show();
                             }
                         });
                     }
+
                     @Override
                     public void onFailure(Call<MascotaResponse> call, Throwable t) {
                         Toast.makeText(context, "Algo paso en la conexión", Toast.LENGTH_LONG).show();

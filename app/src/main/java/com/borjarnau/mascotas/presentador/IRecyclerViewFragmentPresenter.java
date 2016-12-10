@@ -16,6 +16,12 @@ public interface IRecyclerViewFragmentPresenter {
 
     public void obtenerFotoPerfil();               /////////////////////////////////////
 
+    public void obtenerFotoPerfilGatoulises();
+    public void obtenerMediosRecientesGatoulises();
+
+    public void obtenerFotoPerfilNiko_pty();
+    public void obtenerMediosRecientesNiko_pty();
+
 
     public void mostrarFotoPerfilUser(String x);
     //public ArrayList<Mascota> getMascotasUSer();

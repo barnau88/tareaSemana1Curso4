@@ -57,7 +57,7 @@ public class MenuConfigurarCuenta extends AppCompatActivity {
                 nombreUsuarioNuevo = etUsuario.getText().toString();
 
 
-                if(nombreUsuarioNuevo.equals("perritopaco")){
+              /*  if(nombreUsuarioNuevo.equals("perritopaco")){
                     RecyclerViewFragmentViewII.esPako = true;
                     RecyclerViewFragmentViewII.nuevoPnombre = "perritopaco";
 
@@ -66,6 +66,25 @@ public class MenuConfigurarCuenta extends AppCompatActivity {
                     RecyclerViewFragmentViewII.esPako = false;
                     RecyclerViewFragmentViewII.nuevoPnombre = "";
                 }
+
+              */
+
+                if(nombreUsuarioNuevo.equals("perritopaco")){
+                    RecyclerViewFragmentViewII.quienEs = 1;
+                    RecyclerViewFragmentViewII.nuevoPnombre = nombreUsuarioNuevo;
+                }else if (nombreUsuarioNuevo.equals("niko_pty")){
+                    RecyclerViewFragmentViewII.quienEs = 2;
+                    RecyclerViewFragmentViewII.nuevoPnombre = nombreUsuarioNuevo;
+                }else if (nombreUsuarioNuevo.equals("gatoulises")){
+                    RecyclerViewFragmentViewII.quienEs = 3;
+                    RecyclerViewFragmentViewII.nuevoPnombre = nombreUsuarioNuevo;
+                }else{
+                    Toast.makeText(getBaseContext(),nombreUsuarioNuevo + "  no ha compartido su usuario sandbox con el desarrollador de la App" , Toast.LENGTH_LONG).show();
+                    RecyclerViewFragmentViewII.quienEs = 0;
+                    RecyclerViewFragmentViewII.nuevoPnombre = "";
+                }
+
+
 
                 Intent intent = new Intent(MenuConfigurarCuenta.this, MainActivity.class);
 

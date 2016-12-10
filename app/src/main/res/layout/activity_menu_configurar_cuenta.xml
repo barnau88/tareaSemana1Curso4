@@ -33,7 +33,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:text="*  el usuario principal de la aplicación es perritopaco"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:text="*  los usuarios que han aceptado la petición sandbox, los cuales, pueden ser el usuario principal de la aplicación son 'perritopaco', 'niko_pty' y 'gatoulises' "
         android:layout_gravity="center_horizontal"
         android:textColor="@color/colorAccent"
         android:textSize="10dp"/>

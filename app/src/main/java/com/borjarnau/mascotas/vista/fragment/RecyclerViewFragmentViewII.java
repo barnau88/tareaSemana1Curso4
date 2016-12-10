@@ -41,7 +41,8 @@ public class RecyclerViewFragmentViewII   extends Fragment { //implements IRecyc
 
     public static ImageView imgFotoMiMascota;
 
-    public static boolean esPako = false;
+    //public static boolean esPako = false;
+    public static int quienEs = 0;
 
     public static String nuevoPnombre;
 

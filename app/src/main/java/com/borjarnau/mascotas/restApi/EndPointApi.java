@@ -29,14 +29,17 @@ public interface EndPointApi  {
     public static String idMiUsuario  = "4013497851";
 
 
-    public static String nombreUsuarioAtuaniv = "atuaniv";
-    public static String idUsuarioAtuaniv = "4039200993";
+    public static String nombreUsuarioGatoulises = "gatoulises";
+    public static String idUsuarioGatoulises = "4192443066";
+
+    public static String nombreUsuarioNiko_pty = "niko_pty";
+    public static String idUsuarioNiko_pty = "4230859422";
+
+    //////////////////////////////////////////////////////////////////////////////////7
 
     public static String nombreUsuarioMypetappcour = "mypetappcour";
     public static String idUsuarioAtuanivMypetappcour = "4036128990";
 
-    public static String nombreUsuarioLuistono56 = "luistono56";
-    public static String idUsuarioLuistono56 = "3077421755";
 
     public static String nombreUsuarioMascotasapp2016= "mascotasapp2016";
     public static String idUsuarioMascotasapp2016 = "4036470568";
@@ -79,20 +82,38 @@ public interface EndPointApi  {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //https://api.instagram.com/v1/users/{user-id}/media/recent/?access_token=ACCESS-TOKEN
-    @GET(ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_PRIMERA_PARTE + idUsuarioAtuaniv + ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_SEGUNDA_PARTE)
-    Call<MascotaResponse> getRecentMediaAtuaniv();
 
     //https://api.instagram.com/v1/users/{user-id}/media/recent/?access_token=ACCESS-TOKEN
-    @GET(ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_PRIMERA_PARTE + idUsuarioAtuaniv + ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_SEGUNDA_PARTE)
-    Call<MascotaFotoPerfilResponse> getFotoPerfilAtuaniv();
+    @GET(ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_PRIMERA_PARTE + idUsuarioGatoulises + ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_SEGUNDA_PARTE)
+    Call<MascotaResponse> getRecentMediaGatoulises();
+
+    //https://api.instagram.com/v1/users/{user-id}/media/recent/?access_token=ACCESS-TOKEN
+    @GET(ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_PRIMERA_PARTE + idUsuarioGatoulises + ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_SEGUNDA_PARTE)
+    Call<MascotaFotoPerfilResponse> getFotoPerfilGatoulises();
 
     //https://api.instagram.com/v1/users/search?q=jack&access_token=ACCESS-TOKEN
-    @GET (ConstantesRestApi.URL_GET_INFO_USER_SEARCH_PRIMERA_PARTE + nombreUsuarioAtuaniv + ConstantesRestApi.URL_GET_INFO_USER_SEARCH_SEGUNDA_PARTE)
-    Call<MascotaResponse> getInfoAtuaniv();
+    @GET (ConstantesRestApi.URL_GET_INFO_USER_SEARCH_PRIMERA_PARTE + nombreUsuarioGatoulises + ConstantesRestApi.URL_GET_INFO_USER_SEARCH_SEGUNDA_PARTE)
+    Call<MascotaResponse> getInfoGatoulises();
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    //https://api.instagram.com/v1/users/{user-id}/media/recent/?access_token=ACCESS-TOKEN
+    @GET(ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_PRIMERA_PARTE + idUsuarioNiko_pty + ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_SEGUNDA_PARTE)
+    Call<MascotaResponse> getRecentMediaNiko_pty();
+
+    //https://api.instagram.com/v1/users/{user-id}/media/recent/?access_token=ACCESS-TOKEN
+    @GET(ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_PRIMERA_PARTE + idUsuarioNiko_pty + ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_SEGUNDA_PARTE)
+    Call<MascotaFotoPerfilResponse> getFotoPerfilNiko_pty();
+
+    //https://api.instagram.com/v1/users/search?q=jack&access_token=ACCESS-TOKEN
+    @GET (ConstantesRestApi.URL_GET_INFO_USER_SEARCH_PRIMERA_PARTE + nombreUsuarioNiko_pty + ConstantesRestApi.URL_GET_INFO_USER_SEARCH_SEGUNDA_PARTE)
+    Call<MascotaResponse> getInfoNiko_pty();
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     //https://api.instagram.com/v1/users/{user-id}/media/recent/?access_token=ACCESS-TOKEN
     @GET(ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_PRIMERA_PARTE + idUsuarioAtuanivMypetappcour + ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_SEGUNDA_PARTE)
@@ -105,21 +126,6 @@ public interface EndPointApi  {
     //https://api.instagram.com/v1/users/search?q=jack&access_token=ACCESS-TOKEN
     @GET (ConstantesRestApi.URL_GET_INFO_USER_SEARCH_PRIMERA_PARTE + nombreUsuarioMypetappcour + ConstantesRestApi.URL_GET_INFO_USER_SEARCH_SEGUNDA_PARTE)
     Call<MascotaResponse> getInfoMypetappcour();
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    //https://api.instagram.com/v1/users/{user-id}/media/recent/?access_token=ACCESS-TOKEN
-    @GET(ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_PRIMERA_PARTE + idUsuarioLuistono56 + ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_SEGUNDA_PARTE)
-    Call<MascotaResponse> getRecentMediaLuistono56();
-
-    //https://api.instagram.com/v1/users/{user-id}/media/recent/?access_token=ACCESS-TOKEN
-    @GET(ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_PRIMERA_PARTE + idUsuarioLuistono56 + ConstantesRestApi.URL_GET_RECENT_MEDIA_USER_ID_SEGUNDA_PARTE)
-    Call<MascotaFotoPerfilResponse> getFotoPerfilLuistono56();
-
-    //https://api.instagram.com/v1/users/search?q=jack&access_token=ACCESS-TOKEN
-    @GET (ConstantesRestApi.URL_GET_INFO_USER_SEARCH_PRIMERA_PARTE + nombreUsuarioLuistono56 + ConstantesRestApi.URL_GET_INFO_USER_SEARCH_SEGUNDA_PARTE)
-    Call<MascotaResponse> getInfoLuistono56();
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
